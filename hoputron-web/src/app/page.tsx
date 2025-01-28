@@ -3,7 +3,7 @@ import { fetchHops } from "@hoputron/repository/hopService";
 
 const HopsPage = async () => {
   const data = await fetchHops();
-  const hops = await data.json();
+  const hops: { id: number; name: string }[] = await data.json();
 
   return (
     <div>
