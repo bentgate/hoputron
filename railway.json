@@ -1,0 +1,10 @@
+{
+  "services": {
+    "api-gateway": {
+      "path": "api-gateway"
+    },
+    "hop-service": {
+      "path": "hop-service"
+    }
+  }
+}
