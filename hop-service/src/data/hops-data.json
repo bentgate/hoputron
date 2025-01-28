@@ -1,0 +1,252 @@
+[
+  {
+    "name": "Cascade",
+    "alphaAcid": "4.5-7.0%",
+    "betaAcid": "4.5-6.0%",
+    "description": "Classic American hop known for its floral, citrus, and grapefruit notes.",
+    "aromaFlavor": [
+      "Floral",
+      "Citrus",
+      "Grapefruit"
+    ],
+    "producer": "USA Brewers",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Citra",
+      "Simcoe",
+      "Mosaic"
+    ],
+    "replaceWith": [
+      "Centennial",
+      "Amarillo",
+      "Chinook"
+    ],
+    "beerStyle": [
+      "Pale Ale",
+      "IPA",
+      "Porter"
+    ]
+  },
+  {
+    "name": "Citra",
+    "alphaAcid": "11.0-13.0%",
+    "betaAcid": "3.5-4.5%",
+    "description": "Intensely fruity with citrus and tropical flavors.",
+    "aromaFlavor": [
+      "Citrus",
+      "Tropical Fruit",
+      "Gooseberry"
+    ],
+    "producer": "Yakima Chief Hops",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Mosaic",
+      "Simcoe",
+      "Galaxy"
+    ],
+    "replaceWith": [
+      "Amarillo",
+      "El Dorado",
+      "Simcoe"
+    ],
+    "beerStyle": [
+      "IPA",
+      "Pale Ale",
+      "NEIPA"
+    ]
+  },
+  {
+    "name": "Centennial",
+    "alphaAcid": "9.5-11.5%",
+    "betaAcid": "3.5-4.5%",
+    "description": "Balanced bitterness and floral, citrus aroma, often called 'Super Cascade'.",
+    "aromaFlavor": [
+      "Floral",
+      "Citrus",
+      "Lemon"
+    ],
+    "producer": "American Hops Association",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Cascade",
+      "Simcoe",
+      "Amarillo"
+    ],
+    "replaceWith": [
+      "Cascade",
+      "Columbus",
+      "Chinook"
+    ],
+    "beerStyle": [
+      "IPA",
+      "Pale Ale",
+      "Amber Ale"
+    ]
+  },
+  {
+    "name": "Amarillo",
+    "alphaAcid": "8.0-11.0%",
+    "betaAcid": "6.0-7.0%",
+    "description": "Rich orange citrus aroma with floral and tropical hints.",
+    "aromaFlavor": [
+      "Orange",
+      "Floral",
+      "Citrus"
+    ],
+    "producer": "Virgil Gamache Farms",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Simcoe",
+      "Citra",
+      "Mosaic"
+    ],
+    "replaceWith": [
+      "Cascade",
+      "Centennial",
+      "Citra"
+    ],
+    "beerStyle": [
+      "IPA",
+      "Pale Ale",
+      "Wheat Beer"
+    ]
+  },
+  {
+    "name": "Simcoe",
+    "alphaAcid": "12.0-14.0%",
+    "betaAcid": "4.0-5.0%",
+    "description": "Complex aroma of pine, earthy, and fruity characteristics.",
+    "aromaFlavor": [
+      "Pine",
+      "Earthy",
+      "Citrus"
+    ],
+    "producer": "Yakima Valley Hops",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Citra",
+      "Mosaic",
+      "Chinook"
+    ],
+    "replaceWith": [
+      "Chinook",
+      "Columbus",
+      "Cascade"
+    ],
+    "beerStyle": [
+      "IPA",
+      "Stout",
+      "Barleywine"
+    ]
+  },
+  {
+    "name": "Saaz",
+    "alphaAcid": "2.5-4.5%",
+    "betaAcid": "3.0-4.5%",
+    "description": "Classic noble hop with mild spice and herbal character.",
+    "aromaFlavor": [
+      "Spicy",
+      "Earthy",
+      "Herbal"
+    ],
+    "producer": "Czech Brewers",
+    "origin": "Czech Republic",
+    "bestPairedWith": [
+      "Hallertau",
+      "Tettnang",
+      "Perle"
+    ],
+    "replaceWith": [
+      "Tettnang",
+      "Hallertau Mittelfrüh"
+    ],
+    "beerStyle": [
+      "Pilsner",
+      "Lager",
+      "Bock"
+    ]
+  },
+  {
+    "name": "Mosaic",
+    "alphaAcid": "11.5-13.5%",
+    "betaAcid": "3.0-4.5%",
+    "description": "Unique hop with berry, citrus, and tropical flavors.",
+    "aromaFlavor": [
+      "Berry",
+      "Citrus",
+      "Tropical"
+    ],
+    "producer": "HBC Hops",
+    "origin": "USA",
+    "bestPairedWith": [
+      "Citra",
+      "Simcoe",
+      "Galaxy"
+    ],
+    "replaceWith": [
+      "Citra",
+      "El Dorado",
+      "Azacca"
+    ],
+    "beerStyle": [
+      "IPA",
+      "Pale Ale",
+      "Hazy IPA"
+    ]
+  },
+  {
+    "name": "Galaxy",
+    "alphaAcid": "13.0-15.0%",
+    "betaAcid": "5.0-6.5%",
+    "description": "Intense tropical fruit flavors with peach and passionfruit.",
+    "aromaFlavor": [
+      "Passionfruit",
+      "Peach",
+      "Citrus"
+    ],
+    "producer": "HPA Australia",
+    "origin": "Australia",
+    "bestPairedWith": [
+      "Citra",
+      "Mosaic",
+      "El Dorado"
+    ],
+    "replaceWith": [
+      "Citra",
+      "Mosaic",
+      "Nelson Sauvin"
+    ],
+    "beerStyle": [
+      "NEIPA",
+      "Pale Ale",
+      "Fruit Beer"
+    ]
+  },
+  {
+    "name": "Nelson Sauvin",
+    "alphaAcid": "12.0-14.0%",
+    "betaAcid": "6.0-8.0%",
+    "description": "White wine-like aroma with hints of gooseberry and tropical fruits.",
+    "aromaFlavor": [
+      "White Wine",
+      "Grape",
+      "Fruity"
+    ],
+    "producer": "New Zealand Hops",
+    "origin": "New Zealand",
+    "bestPairedWith": [
+      "Citra",
+      "Mosaic",
+      "Galaxy"
+    ],
+    "replaceWith": [
+      "Citra",
+      "Hallertau Blanc"
+    ],
+    "beerStyle": [
+      "Saison",
+      "IPA",
+      "Pale Ale"
+    ]
+  }
+]
