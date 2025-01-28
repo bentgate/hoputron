@@ -6,10 +6,10 @@ services:
   api-gateway:
     build: ./api-gateway
     ports:
-      - "3000:3000"
+      - "${PORT}:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
+      - DATABASE_URL=${DATABASE_URL}
     depends_on:
       - hop-service
       # - calc-service
@@ -23,10 +23,10 @@ services:
   hop-service:
     build: ./hop-service
     ports:
-      - "4000:4000"
+      - "${PORT}:4000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
+      - DATABASE_URL=${DATABASE_URL}
     depends_on:
       postgres:
         condition: service_healthy
