@@ -5,7 +5,7 @@ import { SERVICES } from 'src/constants/paths';
 
 @Controller('hops')
 export class HopProxyController {
-  private BASE_URL = SERVICES.HOP_SERVICE;
+  private BASE_URL = process.env.HOP_SERVICE_URL;
 
   constructor(private readonly httpService: HttpService) { }
 
