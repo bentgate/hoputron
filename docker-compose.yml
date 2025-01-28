@@ -1,0 +1,82 @@
+# Docker Compose for Multi-Language Microservices
+version: '3.8'
+
+services:
+  # API Gateway (NestJS)
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
+    depends_on:
+      - hop-service
+      # - calc-service
+      # - user-service
+    volumes:
+      - ./api-gateway:/usr/src/app
+    command: ["npm", "run", "start:prod"]
+
+
+  # Hop Data Service (NestJS)
+  hop-service:
+    build: ./hop-service
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./hop-service:/usr/src/app
+    command: ["sh", "-c", "sleep 10 && npm run start:prod"]
+
+
+  # Brewing Calculation Service (C# .NET Core)
+  # calc-service:
+  #   build: ./calc-service
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Production
+  #   depends_on:
+  #     - postgres
+  #   volumes:
+  #     - ./calc-service:/app
+  #   command: ["dotnet", "CalcService.dll"]
+
+  # # User Management Service (Java Spring Boot)
+  # user-service:
+  #   build: ./user-service
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=prod
+  #   depends_on:
+  #     - postgres
+  #   volumes:
+  #     - ./user-service:/usr/src/app
+  #   command: ["java", "-jar", "user-service.jar"]
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: beer_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d beer_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
