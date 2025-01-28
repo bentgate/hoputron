@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HttpModule } from '@nestjs/axios';
 import { HopProxyController } from './hop-proxy/hop-proxy.controller';
+import { ConfigModule } from '@nestjs/config';
+
 
 @Module({
   imports: [
@@ -12,6 +14,7 @@ import { HopProxyController } from './hop-proxy/hop-proxy.controller';
       synchronize: true,
     }),
     HttpModule,
+    ConfigModule.forRoot(),
   ],
   controllers: [HopProxyController],
 })

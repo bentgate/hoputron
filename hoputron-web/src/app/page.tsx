@@ -1,10 +1,20 @@
+import { fetchHops } from "@hoputron/repository/hopService";
 
-export default function Home() {
+
+const HopsPage = async () => {
+  const data = await fetchHops();
+  const hops = await data.json();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1>Hello! I am Hoputron</h1>
-      <p>Here to help you with all your hop needs.</p>
-
+    <div>
+      <h1>Hops List</h1>
+      <ul>
+        {hops.map((hop) => (
+          <li key={hop.id}>{hop.name}</li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default HopsPage;

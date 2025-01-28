@@ -5,6 +5,9 @@
     },
     "hop-service": {
       "path": "hop-service"
+    },
+    "hoputron-web": {
+      "path": "hoputron-web"
     }
   }
 }
