@@ -1,9 +1,10 @@
 import { fetchHops } from "@hoputron/repository/hopService";
 
+export const dynamic = 'force-dynamic'
 
 const HopsPage = async () => {
   const data = await fetchHops();
-  const hops: { id: number; name: string }[] = await data.json();
+  const hops: { id: number; name: string }[] = await data.json() ?? [];
 
   return (
     <div>
