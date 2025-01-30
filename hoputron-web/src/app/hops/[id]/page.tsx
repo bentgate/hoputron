@@ -1,6 +1,6 @@
 import { Hop } from "@hoputron/models/hop";
 import { fetchHopById } from "@hoputron/repository/hopService";
-import { Grid2, TablePagination, Typography } from "@mui/material";
+import { Grid2, Typography } from "@mui/material";
 import { notFound } from "next/navigation";
 
 export default async function HopPage({ params }: { params: Promise<{ id: number }> }) {
@@ -26,7 +26,7 @@ export default async function HopPage({ params }: { params: Promise<{ id: number
           <Typography variant="subtitle1">BetaAcid: {data.betaAcid}</Typography>
         </Grid2>
       </Grid2>
-      {data?.aromaFlavor.map((flavour, index) => <Typography key={index} variant="body1">{flavour}</Typography>)}
+      {data?.aromaFlavor && data.aromaFlavor.map((flavour, index) => <Typography key={index} variant="body1">{flavour}</Typography>)}
     </div>
   )
 }
