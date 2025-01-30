@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Repository } from 'typeorm';
-import { Hop } from './hops/hop.entity';
+
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Hop } from './hops/entities/hop.entity';
 
 dotenv.config();
 
