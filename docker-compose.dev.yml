@@ -1,6 +1,4 @@
 
-version: '3.8'
-
 services:
   # API Gateway (NestJS)
   api-gateway:
@@ -12,6 +10,7 @@ services:
     environment:
       - NODE_ENV=development
       - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
+      - HOP_SERVICE_URL=http://hop-service:4000
     depends_on:
       - hop-service
       - postgres
