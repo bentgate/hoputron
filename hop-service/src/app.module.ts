@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { HopsModule } from './hops/hops.module';
-import { Hop } from './hops/hop.entity';
 import { ConfigModule } from '@nestjs/config';
+import { HopModule } from './hops/hop.module';
+import { Hop } from './hops/entities/hop.entity';
 
 @Module({
   imports: [
@@ -16,8 +16,9 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: process.env.NODE_ENV === 'production' ? false : true,
       ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
     }),
-    HopsModule,
+    HopModule,
     TypeOrmModule.forFeature([Hop]),
+    HopModule,
 
   ],
 })

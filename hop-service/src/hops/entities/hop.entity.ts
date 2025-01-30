@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Hop {
@@ -17,7 +17,7 @@ export class Hop {
   @Column('text')
   description: string;
 
-  @Column('text')
+  @Column('text', { array: true })
   aromaFlavor: string;
 
   @Column({ nullable: true })
