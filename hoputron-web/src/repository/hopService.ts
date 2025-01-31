@@ -7,10 +7,7 @@ export const fetchHops = async () => {
 };
 
 export const fetchHopById = async (id: number) => {
-  console.log({ BASE_URL })
   const response = await fetch(`${BASE_URL}/hops/${id}`);
-
-  console.log({ response: await response.statusText })
   return handleResponse(response)
 }
 

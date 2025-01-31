@@ -16,7 +16,15 @@ export const HopCard = ({ hop }: HopCardProps) => {
             subheader={hop.description}
             sx={{
               "& .MuiCardHeader-title": { fontSize: "1.3rem", fontWeight: "bold", color: "primary.main" },
-              "& .MuiCardHeader-subheader": { fontSize: "0.9rem", color: "text.secondary" },
+              "& .MuiCardHeader-subheader": {
+                fontSize: "0.9rem",
+                color: "text.secondary",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 4,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              },
             }}
           />
           <CardContent>
@@ -26,7 +34,7 @@ export const HopCard = ({ hop }: HopCardProps) => {
               </Grid2>
               <Grid2 size={{ xs: 6 }}>
                 <Chip
-                  label={`${hop.alphaAcid}`}
+                  label={hop.alphaAcidMin ? `${hop.alphaAcidMin}-${hop.alphaAcidMax}%` : 'N/A'}
                   color="primary"
                   sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                 />
@@ -36,7 +44,7 @@ export const HopCard = ({ hop }: HopCardProps) => {
               </Grid2>
               <Grid2 size={{ xs: 6 }}>
                 <Chip
-                  label={hop.betaAcid ? `${hop.betaAcid}` : "N/A"}
+                  label={hop.betaAcidMin ? `${hop.betaAcidMin}-${hop.betaAcidMax}%` : "N/A"}
                   color="secondary"
                   sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                 />
