@@ -120,11 +120,11 @@ export default async function HopPage({ params }: { params: Promise<{ id: number
         )}
 
         {/* Beer Styles */}
-        {data.beerStyle?.length > 0 && (
+        {data.styles?.length > 0 && (
           <Box sx={{ mt: 3 }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>Commonly Used In</Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-              {data.beerStyle.map((style, index) => (
+              {data.styles.map((style, index) => (
                 <Chip key={index} label={style} color="warning" sx={{ fontSize: 14 }} />
               ))}
             </Box>
