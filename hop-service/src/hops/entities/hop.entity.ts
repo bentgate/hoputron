@@ -1,37 +1,46 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class Hop {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 
-  @Column()
-  alphaAcid: string;
-
-  @Column({ nullable: true })
-  betaAcid: string;
-
-  @Column('text')
+  @Column({ type: "text", nullable: true })
   description: string;
 
-  @Column('text', { array: true })
-  aromaFlavor: string;
-
   @Column({ nullable: true })
-  producer: string;
+  country: string;
 
-  @Column()
-  origin: string;
+  @Column("simple-array", { nullable: true })
+  aroma_profile: string[];
 
-  @Column('text', { array: true })
-  bestPairedWith: string[];
+  @Column("simple-array", { nullable: true })
+  styles: string[];
 
-  @Column('text', { array: true })
-  replaceWith: string[];
+  @Column({ type: "float", nullable: true })
+  alphaAcidMin: number;
 
-  @Column('text', { array: true })
-  beerStyle: string[];
+  @Column({ type: "float", nullable: true })
+  alphaAcidMax: number;
+
+  @Column({ type: "float", nullable: true })
+  betaAcidMin: number;
+
+  @Column({ type: "float", nullable: true })
+  betaAcidMax: number;
+
+  @Column({ type: "float", nullable: true })
+  coHumuloneMin: number;
+
+  @Column({ type: "float", nullable: true })
+  coHumuloneMax: number;
+
+  @Column({ type: "float", nullable: true })
+  totalOilMin: number;
+
+  @Column({ type: "float", nullable: true })
+  totalOilMax: number;
 }
