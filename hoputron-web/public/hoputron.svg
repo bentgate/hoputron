@@ -1,0 +1,16 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="140" fill="#0D0D0D" stroke="#00FF99" stroke-width="4" />
+
+  <!-- Futuristic Hop Cone -->
+  <path d="M150 60 C130 80, 110 120, 150 180 C190 120, 170 80, 150 60 Z" fill="#00FF99" stroke="#00CC88" stroke-width="3" />
+  <path d="M150 80 C140 90, 130 110, 150 160 C170 110, 160 90, 150 80 Z" fill="#00DD88" stroke="#009966" stroke-width="2" />
+  <path d="M150 100 C145 105, 135 120, 150 150 C165 120, 155 105, 150 100 Z" fill="#00CC77" stroke="#008855" stroke-width="2" />
+
+  <!-- Neon Glows -->
+  <circle cx="150" cy="150" r="100" stroke="#00FF99" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+  <circle cx="150" cy="150" r="120" stroke="#00FF99" stroke-width="1" stroke-dasharray="10,10" opacity="0.6" />
+
+  <!-- Hoputron Text -->
+  <text x="50" y="250" font-family="Arial, sans-serif" font-size="36" fill="#00FF99" font-weight="bold">HOPUTRON</text>
+</svg>

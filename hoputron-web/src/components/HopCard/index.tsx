@@ -1,5 +1,5 @@
 import { Hop } from "@hoputron/models/hop";
-import { Card, CardContent, CardHeader, Grid2, Typography, } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardHeader, Chip, Grid2, Typography, } from "@mui/material";
 import Link from "next/link";
 
 type HopCardProps = {
@@ -8,26 +8,49 @@ type HopCardProps = {
 
 export const HopCard = ({ hop }: HopCardProps) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <Link href={`/hops/${hop.id}`}>
-        <CardHeader title={hop.name} subheader={hop.description} />
+    <Card sx={{ maxWidth: 345, borderRadius: 3, boxShadow: 3, transition: "transform 0.2s", "&:hover": { transform: "scale(1.02)" } }}>
+      <Link href={`/hops/${hop.id}`} passHref>
+        <CardActionArea sx={{ p: 2 }}>
+          {/* Header Section */}
+          <CardHeader
+            title={hop.name}
+            subheader={hop.description}
+            sx={{
+              "& .MuiCardHeader-title": { fontSize: "1.3rem", fontWeight: "bold", color: "primary.main" },
+              "& .MuiCardHeader-subheader": { fontSize: "0.9rem", color: "text.secondary" },
+            }}
+          />
+
+          {/* Card Content */}
+          <CardContent>
+            <Grid2 container spacing={2} alignItems="center">
+              {/* Alpha Acid */}
+              <Grid2 xs={8}>
+                <Typography variant="subtitle1" fontWeight="bold">Alpha Acid:</Typography>
+              </Grid2>
+              <Grid2 xs={4}>
+                <Chip
+                  label={`${hop.alphaAcid}%`}
+                  color="primary"
+                  sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                />
+              </Grid2>
+
+              {/* Beta Acid */}
+              <Grid2 xs={8}>
+                <Typography variant="subtitle1" fontWeight="bold">Beta Acid:</Typography>
+              </Grid2>
+              <Grid2 xs={4}>
+                <Chip
+                  label={hop.betaAcid ? `${hop.betaAcid}%` : "N/A"}
+                  color="secondary"
+                  sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                />
+              </Grid2>
+            </Grid2>
+          </CardContent>
+        </CardActionArea>
       </Link>
-      <CardContent>
-        <Grid2 container spacing={2}>
-          <Grid2 size={8}>
-            <Typography variant="subtitle1">Alpha Acid:</Typography>
-          </Grid2>
-          <Grid2 size={4}>
-            <Typography variant="subtitle1">{hop.alphaAcid}</Typography>
-          </Grid2>
-          <Grid2 size={8}>
-            <Typography variant="subtitle1">Beta Acid:</Typography>
-          </Grid2>
-          <Grid2 size={4}>
-            <Typography variant="subtitle1">{hop.betaAcid}</Typography>
-          </Grid2>
-        </Grid2>
-      </CardContent>
     </Card>
   )
 }

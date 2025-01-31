@@ -1,6 +1,6 @@
 import { Hop } from "@hoputron/models/hop";
 import { fetchHopById } from "@hoputron/repository/hopService";
-import { Grid2, Typography } from "@mui/material";
+import { Box, Card, CardContent, Chip, Divider, Grid, Grid2, Paper, Typography } from "@mui/material";
 import { notFound } from "next/navigation";
 
 export default async function HopPage({ params }: { params: Promise<{ id: number }> }) {
@@ -15,18 +15,48 @@ export default async function HopPage({ params }: { params: Promise<{ id: number
 
 
   return (
-    <div>
-      <Typography variant="h1">{data.name}</Typography>
-      <Typography variant="body1">{data.description}</Typography>
-      <Grid2>
-        <Grid2>
-          <Typography variant="subtitle1">AlphaAcid: {data.alphaAcid}</Typography>
-        </Grid2>
-        <Grid2>
-          <Typography variant="subtitle1">BetaAcid: {data.betaAcid}</Typography>
-        </Grid2>
-      </Grid2>
-      {data?.aromaFlavor && data.aromaFlavor.map((flavour, index) => <Typography key={index} variant="body1">{flavour}</Typography>)}
-    </div>
+    <Card sx={{ maxWidth: 600, mx: "auto", mt: 4, p: 3, borderRadius: 3, boxShadow: 3 }}>
+      <CardContent>
+        {/* Title */}
+        <Typography variant="h1" sx={{ color: "primary.main", fontWeight: "bold", textAlign: "center", mb: 2 }}>
+          {data.name}
+        </Typography>
+
+        {/* Description */}
+        <Typography variant="body1" sx={{ color: "text.secondary", textAlign: "center", mb: 3 }}>
+          {data.description}
+        </Typography>
+
+        <Divider sx={{ my: 2 }} />
+
+        {/* Acid Content in Grid */}
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={6}>
+            <Paper sx={{ p: 2, textAlign: "center", bgcolor: "primary.light", borderRadius: 2 }}>
+              <Typography variant="subtitle1" fontWeight="bold">Alpha Acid</Typography>
+              <Typography variant="body2">{data.alphaAcid}%</Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Paper sx={{ p: 2, textAlign: "center", bgcolor: "secondary.light", borderRadius: 2 }}>
+              <Typography variant="subtitle1" fontWeight="bold">Beta Acid</Typography>
+              <Typography variant="body2">{data.betaAcid ? `${data.betaAcid}%` : "N/A"}</Typography>
+            </Paper>
+          </Grid>
+        </Grid>
+
+        {/* Aroma & Flavor List */}
+        {data?.aromaFlavor && (
+          <Box sx={{ mt: 3 }}>
+            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>Aroma & Flavor</Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              {data.aromaFlavor.map((flavour, index) => (
+                <Chip key={index} label={flavour} color="primary" sx={{ fontSize: 14 }} />
+              ))}
+            </Box>
+          </Box>
+        )}
+      </CardContent>
+    </Card>
   )
 }
