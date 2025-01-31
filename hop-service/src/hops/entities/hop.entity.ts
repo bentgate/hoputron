@@ -15,7 +15,7 @@ export class Hop {
   country: string;
 
   @Column("simple-array", { nullable: true })
-  aroma_profile: string[];
+  aromaProfile: string[];
 
   @Column("simple-array", { nullable: true })
   styles: string[];
