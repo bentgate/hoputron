@@ -21,22 +21,22 @@ export const HopCard = ({ hop }: HopCardProps) => {
           />
           <CardContent>
             <Grid2 container spacing={2} alignItems="center">
-              <Grid2 size={{ xs: 8 }}>
+              <Grid2 size={{ xs: 6 }}>
                 <Typography variant="subtitle1" fontWeight="bold">Alpha Acid:</Typography>
               </Grid2>
-              <Grid2 size={{ xs: 4 }}>
+              <Grid2 size={{ xs: 6 }}>
                 <Chip
-                  label={`${hop.alphaAcid}%`}
+                  label={`${hop.alphaAcid}`}
                   color="primary"
                   sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                 />
               </Grid2>
-              <Grid2 size={{ xs: 8 }}>
+              <Grid2 size={{ xs: 6 }}>
                 <Typography variant="subtitle1" fontWeight="bold">Beta Acid:</Typography>
               </Grid2>
-              <Grid2 size={{ xs: 4 }}>
+              <Grid2 size={{ xs: 6 }}>
                 <Chip
-                  label={hop.betaAcid ? `${hop.betaAcid}%` : "N/A"}
+                  label={hop.betaAcid ? `${hop.betaAcid}` : "N/A"}
                   color="secondary"
                   sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                 />
