@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { HopService } from './hop.service';
 import { CreateHopDto } from './dto/create-hop.dto';
 import { UpdateHopDto } from './dto/update-hop.dto';
+import { SearchHopsDto } from './dto/hopQueries.dto';
 
 @Controller('hops')
 export class HopController {
@@ -10,6 +11,12 @@ export class HopController {
   @Post()
   create(@Body() createHopDto: CreateHopDto) {
     return this.hopService.create(createHopDto);
+  }
+
+  @Get('search')
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async searchHops(@Query() query: SearchHopsDto) {
+    return this.hopService.search(query);
   }
 
   @Get()
