@@ -6,6 +6,12 @@ export const fetchHops = async () => {
   return await response.json()
 };
 
+export const searchHops = async (query: string) => {
+  const response = await fetch(`${BASE_URL}/hops/search?name=${query}`);
+
+  return await response.json()
+}
+
 export const fetchHopById = async (id: number) => {
   const response = await fetch(`${BASE_URL}/hops/${id}`);
   return handleResponse(response)
