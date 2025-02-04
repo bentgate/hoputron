@@ -7,6 +7,10 @@ dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 3000;
+
+  app.enableCors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:2828'
+  })
   await app.listen(port);
   console.log(`API is running on http://localhost:${port}`);
 }
