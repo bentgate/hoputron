@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../../themes/theme";
 import "./globals.css";
 import Providers from "@hoputron/providers/reactQuery";
+import { Navigation } from '@hoputron/components/Navigation';
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${orbitron.variable} ${geistMono.variable} antialiased`}
       >
+        <Navigation />
         <Providers>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>

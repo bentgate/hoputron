@@ -50,7 +50,9 @@ const Home = () => {
 
       <Grid2 container margin="16px" spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {(searchResults && searchResults.length > 0 ? searchResults : lastValidResults).map((hop: Hop) => (
-          <HopCard key={hop.id} hop={hop} />
+          <Grid2 key={hop.id} size={{ xs: 4, sm: 4, md: 3 }}>
+            <HopCard hop={hop} />
+          </Grid2>
         ))}
       </Grid2>
     </div>

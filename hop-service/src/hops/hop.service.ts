@@ -19,7 +19,9 @@ export class HopService {
   }
 
   async search({ name, flavor, alphaMax, alphaMin }: SearchHopsDto) {
-    const queryBuilder = this.hopRepository.createQueryBuilder('hop');
+    const queryBuilder = this.hopRepository.createQueryBuilder('hop')
+      .leftJoinAndSelect('hop.bestPairedWith', 'bestPairedWith')
+      .leftJoinAndSelect('hop.replaceWith', 'replaceWith');
 
     if (name) queryBuilder.andWhere('hop.name ILIKE :name', { name: `%${name}%` });
     if (flavor) queryBuilder.andWhere(`:flavor = ANY(hop.aromaProfile)`, { flavor });
@@ -30,11 +32,16 @@ export class HopService {
   }
 
   async findAll() {
-    return await this.hopRepository.find();
+    return await this.hopRepository.find({
+      relations: ['bestPairedWith', 'replaceWith']
+    });
   }
 
   async findOne(id: number) {
-    return await this.hopRepository.findOneOrFail({ where: { id } });
+    return await this.hopRepository.findOneOrFail({ 
+      where: { id },
+      relations: ['bestPairedWith', 'replaceWith']
+    });
   }
 
   update(id: number, updateHopDto: UpdateHopDto) {

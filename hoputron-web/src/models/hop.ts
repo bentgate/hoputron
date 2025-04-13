@@ -1,4 +1,3 @@
-
 export type Hop = {
   id: number;
   name: string;
@@ -14,7 +13,7 @@ export type Hop = {
   aromaProfile: string[];
   producer?: string;
   origin: string;
-  bestPairedWith: string[];
-  replaceWith: string[];
+  bestPairedWith: Hop[];
+  replaceWith: Hop[];
   styles: string[];
 };

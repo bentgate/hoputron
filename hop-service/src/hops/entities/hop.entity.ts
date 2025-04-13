@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
 
 @Entity()
 export class Hop {
@@ -43,4 +43,20 @@ export class Hop {
 
   @Column({ type: "float", nullable: true })
   totalOilMax: number;
+
+  @ManyToMany(() => Hop)
+  @JoinTable({
+    name: "hop_best_paired_with",
+    joinColumn: { name: "hop_id", referencedColumnName: "id" },
+    inverseJoinColumn: { name: "paired_hop_id", referencedColumnName: "id" }
+  })
+  bestPairedWith: Hop[];
+
+  @ManyToMany(() => Hop)
+  @JoinTable({
+    name: "hop_replace_with",
+    joinColumn: { name: "hop_id", referencedColumnName: "id" },
+    inverseJoinColumn: { name: "replacement_hop_id", referencedColumnName: "id" }
+  })
+  replaceWith: Hop[];
 }
