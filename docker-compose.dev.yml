@@ -1,24 +1,5 @@
 
 services:
-  # API Gateway (NestJS)
-  api-gateway:
-    build:
-      context: ./api-gateway
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - DATABASE_URL=postgres://user:pass@postgres:5432/beer_db
-      - HOP_SERVICE_URL=http://hop-service:4000
-    depends_on:
-      - hop-service
-      - postgres
-    volumes:
-      - ./api-gateway:/usr/src/app
-      - /usr/src/app/node_modules
-    command: ["npm", "run", "start:dev"]
-
   # Hop Data Service (NestJS)
   hop-service:
     build:

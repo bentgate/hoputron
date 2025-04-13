@@ -10,6 +10,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 4000;
 
+  // Enable CORS
+  app.enableCors({
+    origin: true, // Allow all origins
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
+
   // Configure Swagger
   const config = new DocumentBuilder()
     .setTitle('Hop Service API')
